@@ -1,4 +1,4 @@
-pacakge org.devops
+pacakge org.deveops
 
 //带颜色打印信息
 def Printf(value,color){
