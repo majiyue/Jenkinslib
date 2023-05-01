@@ -1,17 +1,15 @@
+
 @Library('mylib') _
 def mytools = new org.devops.tools()
+ 
 pipeline {
-
 	agent { label  "build" }
-
 	stages {
-		stage("build"){
+		stage("hello"){
 			steps{
 				script{
-					msg = "hello jenkins"
-					mytools.PrintMsg(msg)
+                    mytools.Post("success",'green')
 				}
 			}
 		}
 	}
-}
