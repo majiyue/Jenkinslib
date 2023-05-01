@@ -8,7 +8,7 @@ pipeline {
 		stage("hello"){
 			steps{
 				script{
-                    mytools.Post("success",'green')
+                    mytools.Printf("success",'green')
 				}
 			}
 		}
