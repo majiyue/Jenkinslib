@@ -1,6 +1,6 @@
 
 @Library('mylib') _
-def mytools = new org.devops.tools()
+def mytools = new org.deveops.tools()
  
 pipeline {
 	agent any
@@ -13,3 +13,4 @@ pipeline {
 			}
 		}
 	}
+}
