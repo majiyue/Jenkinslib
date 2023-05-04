@@ -28,7 +28,7 @@ pipeline {
 		echo "Hello ${params.PERSON}"
 		echo "是否是正式发布版？&{params.Publish}"
                 echo "Branch is ${Branch}"
-		sh "git clone https://adasgitlab.autel.com/tools/cuav_server2.git"
+		sh "git clone https://adasgitlab.autel.com/tools/cuav_server2"
 		sh "git checkout &{params.Branch}"
             }
         }
