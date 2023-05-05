@@ -45,6 +45,7 @@ pipeline {
 		    . /var/jenkins_home/.bash_profile
 		    
                     cd ./sdk
+		    GOPATH=$(go env GOPATH)
                     sudo make android
                 """
             }
