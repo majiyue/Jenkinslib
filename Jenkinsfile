@@ -35,7 +35,7 @@ pipeline {
                 echo "Branch is ${Branch}"
 		sh "git clone https://A23123:!mjy0123456!@adasgitlab.autel.com/tools/cuav_server2.git"
 		sh "pwd"
-		sh "cd ./test123/cuav_server2"
+		sh "cd ./cuav_server2"
 		sh "git checkout ${params.Branch}"
 		sh "pwd"
             }
