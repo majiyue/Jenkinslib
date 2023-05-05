@@ -41,8 +41,8 @@ pipeline {
                     git reset --hard HEAD
                     pwd
                     git checkout ${params.Branch}
-		   sudo chmod +x /root/.bash_profile
-		   sudo . /root/.bash_profile
+		   sudo chmod +x /var/jenkins_home/.bash_profile
+		    . /var/jenkins_home/.bash_profile
                     cd ./sdk
                     make android
                 """
