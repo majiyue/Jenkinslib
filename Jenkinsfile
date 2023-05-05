@@ -46,6 +46,14 @@ pipeline {
                     make android
                 """
             }
+         	steps{
+			          script{
+                        mytools.Printf("应用打包",'green')
+		                     	gradleHome =tool "gradletool"
+                        mytools.Printf("gradleHome",'green')
+                        sh "${gradleHome}/bin/gradle -version"
+					}
+				}
         }
     }
 // 		stage('gradleInfo') {
