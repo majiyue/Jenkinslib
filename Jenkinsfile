@@ -41,7 +41,7 @@ pipeline {
                     git fetch
                     git reset --hard HEAD
                     pwd
-                    git checkout ${params.Branch} // Fix here: Use ${params.Branch} or $params.Branch
+                    git checkout ${Branch} // Fix here: Use ${params.Branch} or $params.Branch
                 '''
             }
         }
