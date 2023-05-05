@@ -35,11 +35,10 @@ pipeline {
 		script{
                         mytools.Printf("应用打包",'green')
 		        //gradleHome =tool "gradletool"
-                        mytools.Printf("gradleHome",'green')
+                        //mytools.Printf("gradleHome",'green')
                         //sh "${gradleHome}/bin/gradle -version"
-			
 			gohome=tool "gotool"
-			sh "${gohome}/go -version"
+			sh "${gohome}/bin/go -version"
 			}
                 
                 sh """
