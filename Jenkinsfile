@@ -46,7 +46,7 @@ pipeline {
 		    sudo chown -R jenkins:jenkins /var/lib/jenkins/workspace/test123/cuav_server2/sdk
                     cd ./sdk
 		    sudo chmod +x /usr/local/go/bin/go
-                    make android
+                    sudo make android
                 """
             }
         }
