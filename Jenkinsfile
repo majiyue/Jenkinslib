@@ -31,10 +31,10 @@ pipeline {
 		sh "pwd"
 		sh "cd .."
 		deleteDir()
-		echo "是否是正式发布版？&{params.Publish}"
+		echo "是否是正式发布版？${params.Publish}"
                 echo "Branch is ${Branch}"
 		sh "git clone https://A23123:!mjy0123456!@adasgitlab.autel.com/tools/cuav_server2.git"
-		sh "git checkout &{params.Branch}"
+		sh "git checkout ${params.Branch}"
 		sh "pwd"
             }
         }
