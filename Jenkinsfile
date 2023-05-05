@@ -28,6 +28,7 @@ pipeline {
         stage('拉取代码中。。。。。') {
             steps {
 		echo "Hello ${params.PERSON}"
+		    sh "pwd"
 		echo "是否是正式发布版？&{params.Publish}"
                 echo "Branch is ${Branch}"
 		sh "git clone https://A23123:!mjy0123456!@adasgitlab.autel.com/tools/cuav_server2.git"
