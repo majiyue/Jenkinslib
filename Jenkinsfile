@@ -43,6 +43,8 @@ pipeline {
                     git checkout ${params.Branch}
 		   sudo chmod +x /var/jenkins_home/.bash_profile
 		    . /var/jenkins_home/.bash_profile
+		    export GOROOT=/usr/local/go
+		    export PATH=$PATH:$GOROOT/bin
                     cd ./sdk
                     make android
                 """
