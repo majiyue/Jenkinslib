@@ -32,6 +32,15 @@ pipeline {
                 deleteDir()
                 echo "是否是正式发布版？${params.Publish}"
                 echo "Branch is ${params.Branch}" 
+		script{
+                        mytools.Printf("应用打包",'green')
+		        //gradleHome =tool "gradletool"
+                        mytools.Printf("gradleHome",'green')
+                        //sh "${gradleHome}/bin/gradle -version"
+			
+			gohome=tool "gotool"
+			sh "${gohome}/go -version"
+			}
                 
                 sh """
                     git clone https://A23123:!mjy0123456!@adasgitlab.autel.com/tools/cuav_server2.git
@@ -46,14 +55,6 @@ pipeline {
                     make android
                 """
             }
-         	steps{
-			          script{
-                        mytools.Printf("应用打包",'green')
-		                     	gradleHome =tool "gradletool"
-                        mytools.Printf("gradleHome",'green')
-                        sh "${gradleHome}/bin/gradle -version"
-					}
-				}
         }
     }
 // 		stage('gradleInfo') {
