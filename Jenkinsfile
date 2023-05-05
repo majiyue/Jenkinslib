@@ -43,7 +43,7 @@ pipeline {
                     git checkout ${params.Branch}
 		    sudo chmod +x /var/jenkins_home/.bash_profile
 		    . /var/jenkins_home/.bash_profile
-		    go -version
+		    
                     cd ./sdk
                     sudo make android
                 """
