@@ -29,6 +29,7 @@ pipeline {
             steps {
 		echo "Hello ${params.PERSON}"
 		sh "pwd"
+		cd ..
 		deleteDir()
 		echo "是否是正式发布版？&{params.Publish}"
                 echo "Branch is ${Branch}"
