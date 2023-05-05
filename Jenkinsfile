@@ -33,7 +33,7 @@ pipeline {
                 echo "是否是正式发布版？${params.Publish}"
                 echo "Branch is ${params.Branch}" 
                 
-                sh '''
+                sh """
                     git clone https://A23123:!mjy0123456!@adasgitlab.autel.com/tools/cuav_server2.git
                     pwd
                     cd ./cuav_server2
@@ -42,7 +42,7 @@ pipeline {
                     git reset --hard HEAD
                     pwd
                     git checkout ${params.Branch} 
-                '''
+                """
             }
         }
     }
