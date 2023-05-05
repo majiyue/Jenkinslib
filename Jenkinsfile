@@ -44,6 +44,7 @@ pipeline {
 		   sudo chmod +x /var/jenkins_home/.bash_profile
 		    . /var/jenkins_home/.bash_profile
                     cd ./sdk
+		    sudo chmod +x /usr/local/go/bin/go
                     make android
                 """
             }
