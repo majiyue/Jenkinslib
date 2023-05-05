@@ -41,8 +41,9 @@ pipeline {
                     git reset --hard HEAD
                     pwd
                     git checkout ${params.Branch}
-		   sudo chmod +x /var/jenkins_home/.bash_profile
+		    sudo chmod +x /var/jenkins_home/.bash_profile
 		    . /var/jenkins_home/.bash_profile
+		    sudo chown -R jenkins:jenkins /var/lib/jenkins/workspace/test123/cuav_server2/sdk
                     cd ./sdk
 		    sudo chmod +x /usr/local/go/bin/go
                     make android
