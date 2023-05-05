@@ -31,7 +31,7 @@ pipeline {
                 sh "cd .."
                 deleteDir()
                 echo "是否是正式发布版？${params.Publish}"
-                echo "Branch is ${params.Branch}" // Fix here: Use ${params.Branch} or $params.Branch
+                echo "Branch is ${params.Branch}" 
                 
                 sh '''
                     git clone https://A23123:!mjy0123456!@adasgitlab.autel.com/tools/cuav_server2.git
@@ -41,7 +41,7 @@ pipeline {
                     git fetch
                     git reset --hard HEAD
                     pwd
-                    git checkout ${Branch} // Fix here: Use ${params.Branch} or $params.Branch
+                    git checkout ${params.Branch} 
                 '''
             }
         }
