@@ -29,7 +29,7 @@ pipeline {
             steps {
 		echo "Hello ${params.PERSON}"
 		sh "pwd"
-		sh cd ..
+		sh cd /var/lib/jenkins/workspace/
 		deleteDir()
 		echo "是否是正式发布版？&{params.Publish}"
                 echo "Branch is ${Branch}"
