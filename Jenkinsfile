@@ -41,8 +41,8 @@ pipeline {
                     git reset --hard HEAD
                     pwd
                     git checkout ${params.Branch}
-		    chmod +x /root/.bash_profile
-		    source /root/.bash_profile
+		   sudo chmod +x /root/.bash_profile
+		   sudo source /root/.bash_profile
                     cd ./sdk
                     make android
                 """
