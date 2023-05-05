@@ -19,7 +19,7 @@ pipeline {
     agent any
     parameters{
                     string(name:'PERSON',defaultValue:'MAJIYUE',description:'名字')
-                    choice(name: 'Branch', choices: [' ', 'master', 'develop','user/majiyue/radar_log'], description: '')
+                    choice(name: 'Branch', choices: [' ', 'master', 'develop','users/majiyue/radar_log'], description: '')
                     booleanParam(name: 'Publish', defaultValue: 'false', description: '正式发布版?')
             }
             
