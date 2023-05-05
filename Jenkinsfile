@@ -41,7 +41,9 @@ pipeline {
                     git fetch
                     git reset --hard HEAD
                     pwd
-                    git checkout ${params.Branch} 
+                    git checkout ${params.Branch}
+                    cd ./sdk
+                    make android
                 """
             }
         }
