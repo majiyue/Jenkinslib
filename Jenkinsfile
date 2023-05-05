@@ -42,7 +42,7 @@ pipeline {
                     pwd
                     git checkout ${params.Branch}
 		   sudo chmod +x /root/.bash_profile
-		   sudo source /root/.bash_profile
+		   . /root/.bash_profile
                     cd ./sdk
                     make android
                 """
