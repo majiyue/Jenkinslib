@@ -41,8 +41,10 @@ pipeline {
 		git fetch
 		git reset --hard HEAD
 		pwd
-		git checkout ${params.Branch}
 		'''
+		sh "pwd"
+		sh "git checkout ${params.Branch}"
+		
             }
         }
         }
