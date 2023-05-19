@@ -1,25 +1,9 @@
-
-@Library('mylib') _
-def mytools = new org.devops.tools()
- 
-// pipeline {
-// 	agent any
-// 	stages {
-// 		stage("hello"){
-// 			steps{
-// 				script{
-//                     mytools.Printf("success",'green')
-// 				}
-// 			}
-// 		}
-// 	}
-// }
-
 pipeline {
     agent any
     parameters{
         string(name: 'PERSON', defaultValue: 'MAJIYUE', description: '名字')
-        choice(name: 'Branch', choices: [' ', 'master', 'develop', 'users/majiyue/radar_log'], description: '')
+        choice(name: 'Branch', choices: [' ', 'master', 'develop', 'users/majiyue/cloud_log',
+        'users/luchongyang/feature_plugins','users/luoyi/feature_radar_gun_ota'], description: '')
         booleanParam(name: 'Publish', defaultValue: 'false', description: '正式发布版?')
     }
             
@@ -28,40 +12,38 @@ pipeline {
             steps {
                 echo "Hello ${params.PERSON}"
                 sh "pwd"
-                sh "cd .."
-                deleteDir()
+              
                 echo "是否是正式发布版？${params.Publish}"
                 echo "Branch is ${params.Branch}"  
                 sh """
-                    git clone https://A23123:!mjy0123456!@adasgitlab.autel.com/tools/cuav_server2.git
-                    pwd
-                    cd ./cuav_server2
-                    pwd
+                    cd /home/go/workspace/
+                    rm -rf /home/go/workspace/cuav_server2
+                    mkdir cuav_server2
+                    cd /home/go/workspace/cuav_server2
+                    git clone https://A23123:!mjy0123456!@adasgitlab.autel.com/tools/cuav_server2.git /home/go/workspace/cuav_server2
+                 
+                    cd /home/go/workspace/cuav_server2
+                
                     git fetch
                     git reset --hard HEAD
-                    pwd
+                    
                     git checkout ${params.Branch}
-		    sudo chmod +x /var/jenkins_home/.bash_profile
-		    . /var/jenkins_home/.bash_profile		    
+		            sudo chmod +x /var/jenkins_home/.bash_profile
+		            . /var/jenkins_home/.bash_profile	
+		            go env -w GO111MODULE=on
+                    go env -w GOPROXY=https://goproxy.io,direct
+                    go env -w GOPRIVATE=adasgitlab.autel.com
+                    export GOPATH=/home/go/workspace
+                    go env GOPATH
                     cd ./sdk
-                    sudo make android
+                    go install golang.org/x/mobile/cmd/gomobile@latest
+                    pwd
+                    go mod tidy&&go get golang.org/x/mobile
+                    make android
+                    rm -rf /home/services.aar
+                    cp services.aar /home/
                 """
             }
         }
     }
-// 		stage('gradleInfo') {
-// 			steps{
-// 			script{
-//                         mytools.Printf("应用打包",'green')
-// 
-// 			gradleHome =tool "gradletool"
-//                         mytools.Printf("gradleHome",'green')
-// 
-// 			sh "${gradleHome}/bin/gradle -version"
-// 					}
-// 				}
-// 		}
-    
 }
-
-
